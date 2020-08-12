@@ -1,0 +1,2 @@
+#we don't need node modules in our git repo
+backend/node_modules
