@@ -16,7 +16,7 @@ var userSchema = new mongoose.Schema({
   organisation: {
     type: String,
     required: true,
-    trim: true,
+    trim: true
   },
   email: {
     type: String,
@@ -26,19 +26,19 @@ var userSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    trim: true,
+    trim: true
   },
   tasks: [
     {
       teamid: String, //to get the id of the team
-      taskid: String, //to get the id of the task
+      taskid: String //to get the id of the task
     },
   ],
   encrypted_password: {
     type: String,
-    required: true,
+    required: true
   },
-  salt: String,
+  salt: String
 });
 
 userSchema.virtual("password") //this won't be stored in the database or represented in the Schema
@@ -82,7 +82,7 @@ module.exports = mongoose.model("User", userSchema);
 
 // doc.password = "Indrajit";
 
-// console.log(doc._id.getTimestamp());
+// console.log(doc._id);
 // console.log(doc.password);
 // console.log(doc.encrypted_password);
 // console.log(doc.authenticate(doc.password));
