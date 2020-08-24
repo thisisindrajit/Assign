@@ -37,7 +37,7 @@ var userSchema = new mongoose.Schema(
     },
     teams: [
       {
-        type: ObjectId, //to get the id of the task
+        type: ObjectId, //to get the id of the team
         ref: "Team", //referring to Team Schema
       },
     ],
@@ -69,7 +69,7 @@ userSchema
     return this._password;
   });
 
-userSchema.method({
+userSchema.methods = {
   authenticate: function (plainpassword) {
     return this.encryptPassword(plainpassword) === this.encrypted_password;
   },
@@ -85,7 +85,7 @@ userSchema.method({
       return "";
     }
   },
-});
+};
 
 module.exports = mongoose.model("User", userSchema);
 
